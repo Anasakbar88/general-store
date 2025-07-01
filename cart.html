@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style0.css" />
+  <style>
+    .cart-item {
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+    }
+    .remove-button, .buy-button {
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .remove-button {
+      background-color: red;
+      color: white;
+    }
+    .buy-button {
+      background-color: green;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <a href="product.html"><h2>Back to Products</h2></a>
+  </header>
+
+  <section id="cart-items"></section>
+
+  <script>
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItems = document.getElementById('cart-items');
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<h2>Your cart is empty.</h2>';
+        return;
+      }
+
+      cartItems.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <h3>${item.name}</h3>
+          <p>Price: ₹${item.price}</p>
+          <button class="remove-button" onclick="removeItem(${index})">Remove</button>
+          <button class="buy-button" onclick="buyItem(${index})">Buy Now</button>
+        </div>
+      `).join('');
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function buyItem(index) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const selectedItem = cart[index];
+      // Store the selected item separately
+      localStorage.setItem('currentBuyItem', JSON.stringify(selectedItem));
+      // Navigate to buy.html
+      window.location.href = 'buy.html';
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

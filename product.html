@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>General Store</title>
+  <link rel="stylesheet" href="style0.css" />
+</head>
+<body>
+  <header>
+    <h1>PRODUCTS</h1>
+    <a href="cart.html"/a>
+  </header>
+
+  <section class="product-list">
+    <div>
+      <img src="rice 1.jpg" alt="Rice" />
+      <h3>Rice - 1kg</h3>
+      <p>₹50</p>
+      <button onclick="addToCart('Rice - 1kg', 50)">Add to Cart</button>
+    </div>
+    <div>
+      <img src="flour.jpeg" alt="Flour" />
+      <h3>Flour - 1kg</h3>
+      <p>₹45</p>
+      <button onclick="addToCart('Flour - 1kg', 45)">Add to Cart</button>
+    </div>
+    <div>
+      <img src="chini.jpeg" alt="Chini" />
+      <h3>Chini - 1kg</h3>
+      <p>₹47</p>
+      <button onclick="addToCart('Chini - 1kg', 47)">Add to Cart</button>
+    </div>
+    <div>
+      <img src="sarso oil.jpeg" alt="Sarso Oil" />
+      <h3>Oil - 1kg</h3> 
+      <p>₹155</p>
+      <button onclick="addToCart('sarso oil - 1kg', 155)">Add to Cart</button>
+    </div>
+  </section>
+
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+  </script>
+</body>
+</html>

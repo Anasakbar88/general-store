@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+<link rel="stylesheet" href="style0.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f2f2f2;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    h2 {
+      text-align: center;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      box-sizing: border-box;
+    }
+    .cart-item {
+      border-bottom: 1px solid #ddd;
+      padding: 6px 0;
+    }
+    .total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Checkout</h2>
+    
+    <h3>Shipping Information</h3>
+    <form id="checkoutForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="text" id="address" placeholder="Address" required>
+      <input type="text" id="city" placeholder="City" required>
+      <input type="text" id="zip" placeholder="ZIP Code" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+    </form>
+
+    <h3>Your Cart</h3>
+    <div id="cart"></div>
+    <div class="total" id="total"></div>
+
+    <button onclick="placeOrder()">Place Order</button>
+  </div>
+
+  <script>
+    // Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Display cart items
+    function displayCart() {
+      const cartDiv = document.getElementById("cart");
+      const totalDiv = document.getElementById("total");
+      if (cart.length === 0) {
+        cartDiv.innerHTML = "<p>Your cart is empty.</p>";
+        totalDiv.innerHTML = "";
+        return;
+      }
+      cartDiv.innerHTML = "";
+      let total = 0;
+      cart.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.textContent = `${item.name} (x${item.quantity}) - $${item.price * item.quantity}`;
+        cartDiv.appendChild(div);
+        total += item.price * item.quantity;
+      });
+      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    displayCart();
+
+    // Handle placing the order
+    function placeOrder() {
+      const name = document.getElementById("name").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const city = document.getElementById("city").value.trim();
+      const zip = document.getElementById("zip").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !address || !city || !zip || !phone) {
+        alert("Please fill in all shipping fields.");
+        return;
+      }
+
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      // For now, just simulate order confirmation
+      alert(`Thank you, ${name}! Your order has been placed.`);
+
+      // Clear cart
+      cart = [];
+      localStorage.setItem("cart", JSON.stringify(cart));
+      displayCart();
+
+      // Optionally clear the form
+      document.getElementById("checkoutForm").reset();
+    }
+  </script>
+</body>
+</html>
