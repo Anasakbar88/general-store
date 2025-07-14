@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Header</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #FFFF00;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-color: #87CEEB;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px solid #333;
+      object-fit: cover;
+    }
+    .info-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 250px;
+    }
+    .info-icon {
+      color: #FF0000;
+      font-size: 24px;
+      background-color: #FFFFFF;
+      padding: 8px;
+      border-radius: 50%;
+    }
+    .info-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      color: #333;
+    }
+    .info-text span {
+      font-weight: 600;
+      color: #000;
+    }
+    .info-text a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+    }
+    .info-text a:hover {
+      color: #f4c10f;
+    }
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<div class="header-container">
+  <div class="logo">
+    <img src="C:\Users\SAIF AKBAR\Desktop\project\logo.jpg" alt="Logo">
+  </div>
+
+  <div class="info-block">
+    <i class="fas fa-envelope info-icon"></i>
+    <div class="info-text">
+      <span>Email Address</span>
+      <a href="mailto:info@umeed.org.in">islamicacademy.org.in</a>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <i class="fas fa-phone info-icon"></i>
+    <div class="info-text">
+      <span>Phone Number</span>
+      <a href="tel:+919279464999">+91 9279464999</a>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <i class="fas fa-map-marker-alt info-icon"></i>
+    <div class="info-text">
+      <span>Our Location</span>
+      <a href="https://www.google.com/maps/place/Islamic+Academy/@23.6299426,85.5210471,15z/data=!4m15!1m8!3m7!1s0x39f4f47572561a39:0xe5894af81c1f9311!2sIslamic+Academy!8m2!3d23.6298453!4d85.5211643!10e5!16s%2Fg%2F11csqq7m3g!3m5!1s0x39f4f47572561a39:0xe5894af81c1f9311!8m2!3d23.6298453!4d85.5211643!16s%2Fg%2F11csqq7m3g?entry=ttu">
+        Soudager mohalla Ramgarh Cantt, Jharkhand
+      </a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navigation Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
+    }
+    ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    ul.menu li {
+      position: relative;
+    }
+    ul.menu li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      padding: 5px;
+    }
+    ul.menu li a.active {
+      border-bottom: 3px solid #000033;
+    }
+    ul.menu li .dropdown {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      min-width: 150px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+    ul.menu li .dropdown a {
+      display: block;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    ul.menu li:hover .dropdown {
+      display: block;
+    }
+    .new-badge {
+      background: #e91e63;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 4px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: top;
+    }
+    .social {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .social span {
+      font-weight: 500;
+      margin-right: 10px;
+    }
+    .social a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      background: #87CEEB;
+      border-radius: 50%;
+      color: #000;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+  <!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<nav>
+  <ul class="menu">
+    <li><a href="#" class="active">Home</a></li>
+    <li>
+      <a href="#">About <i class="fas fa-caret-down"></i></a>
+      <div class="dropdown">
+        <a href="#">Vision</a>
+        <a href="#">Mission</a>
+        <a href="#">History</a>
+      </div>
+    </li>
+    <li>
+      <a href="#">People <i class="fas fa-caret-down"></i></a>
+      <div class="dropdown">
+        <a href="#">Faculty</a>
+        <a href="#">Staff</a>
+        <a href="#">Students</a>
+      </div>
+    </li>
+    <li><a href="#">What we do</a>
+<div class="dropdown">
+        <a href="#">Academics</a>
+        <a href="#">Tarbiyah</a>
+        <a href="#">Art and culture</a>
+      </div>
+
+</li>
+    <li>
+      <a href="notice.html">Notice <i class="fas fa-caret-down"></i><span class="new-badge">NEW</span></a>
+    </li>
+    <li><a href="#">School Calendar 2025</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="C:\Users\SAIF AKBAR\Desktop\project\gallery.html">Gallery</a></li>
+  </ul>
+
+  <div class="social">
+    <span>Follow Us :</span>
+    <a href="https://www.youtube.com/@anasakbar4337https://www.youtube.com/@anasakbar4337"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</nav>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Section with Background Image</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      height: 100vh; /* Full viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), /* Dark overlay */
+        url('photo 3.jpeg') center/cover no-repeat;
+      color: white;
+      padding: 50px;
+      box-sizing: border-box;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0 0 10px 0;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin: 0 0 20px 0;
+    }
+
+    .hero button {
+      background-color: #ffc107;
+      border: none;
+      color: black;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .hero button:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div>
+    <h1>Hope for a<br>Better Tomorrow</h1>
+    <p>Empowering the Next Generation of Community and Global Leaders.</p>
+    <button>Explore</button>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us Section</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f8f8;
+    }
+    .section-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      padding: 60px 40px;
+      flex-wrap: wrap;
+      background: #fff;
+    }
+    .section-image img {
+      width: 400px;
+      max-width: 90vw;
+      border-radius: 15px;
+      display: block;
+    }
+    .section-content {
+      max-width: 600px;
+    }
+    .section-content h4 {
+      color: #f4c10f;
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+    .section-content h2 {
+      margin: 0 0 20px 0;
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+    }
+    .section-content ol {
+      padding-left: 20px;
+      margin: 0 0 30px 0;
+      color: #333;
+    }
+    .section-content ol li {
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .btn {
+      background: #f4c10f;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #e0af0f;
+    }
+  </style>
+</head>
+<body>
+
+<div class="section-container">
+  <div class="section-image">
+    <img src="C:\Users\SAIF AKBAR\Desktop\project\iamge.jpg" alt="Students Image">
+  </div>
+  <div class="section-content">
+    <h4>About Us</h4>
+    <h2>We are on the Mission to:</h2>
+    <ol>
+      <li>Create a World Class School &amp; a center of Excellence.</li>
+      <li>Create Community &amp; Global Leaders.</li>
+      <li>Promote STEM Learning, Innovation &amp; Entrepreneurship.</li>
+      <li>Inculcate 21st Century Skills.</li>
+      <li>Nurture Upright Character through Islamic Values &amp; Tarbiyah.</li>
+    </ol>
+    <a href="#" class="btn">Read More</a>
+  </div>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What We Do</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+    }
+    .section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .section h4 {
+      color: #f4c10f;
+      font-size: 18px;
+      margin: 0 0 10px 0;
+    }
+    .section h2 {
+      font-size: 32px;
+      margin: 0 0 20px 0;
+      color: #333;
+    }
+    .section p {
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      color: #555;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 320px;
+      text-align: left;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      display: block;
+    }
+    .card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-body h3 {
+      margin: 0 0 15px 0;
+      font-size: 20px;
+      color: #333;
+    }
+    .card-body p {
+      flex: 1;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 20px 0;
+    }
+    .card-body a {
+      border: 1px solid #f4c10f;
+      color: #000;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .card-body a:hover {
+      background: #f4c10f;
+    }
+  </style>
+</head>
+<body>
+
+<div class="section">
+  <h4>Operations</h4>
+  <h2>What do We Do</h2>
+  <p>At Islamic Academy School, we strive to nurture all our students into individuals
+    with a strong civic sense and a solid moral compass.</p>
+
+  <div class="cards">
+    <div class="card">
+      <img src="C:\Users\SAIF AKBAR\Desktop\project\Academics.jpeg" alt="Academics">
+      <div class="card-body">
+        <h3>Academics</h3>
+        <p>We provide an CBSE curriculum focusing on discussions, debates, outcome-based, and interdisciplinary learning.</p>
+        <a href="#">Know More</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="C:\Users\SAIF AKBAR\Desktop\project\Residential.jpeg" alt="Residential Programme">
+      <div class="card-body">
+        <h3>Residential Programme</h3>
+        <p>At Islamic Academy School, we believe holistic development thrives in an immersive environment.</p>
+        <a href="#">Know More</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="C:\Users\SAIF AKBAR\Desktop\project\Art.jpeg" alt="Art & Culture">
+      <div class="card-body">
+        <h3>Art & Culture</h3>
+        <p>At Islamic Academy School, we believe that Art and Culture are the cornerstones of a progressive education system.</p>
+        <a href="#">Know More</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Footer Example</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f8f8;
+    }
+    footer {
+      background-color: #A9A9A9
+
+;
+      padding: 40px 20px 20px 20px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .footer-column {
+      flex: 1 1 200px;
+      min-width: 200px;
+    }
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 12px;
+    }
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+    .footer-column ul li a:hover {
+      text-decoration: underline;
+    }
+    .contact-info {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .contact-info i {
+      color: #f4c10f;
+      margin-right: 6px;
+    }
+    .contact-info div {
+      margin-bottom: 12px;
+    }
+    .donate-text {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    .donate-btn {
+      background-color: #f4c10f;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .donate-btn:hover {
+      background-color: #e0b800;
+    }
+    .footer-bottom {
+      border-top: 1px solid #ccc;
+      margin-top: 20px;
+      padding-top: 10px;
+      text-align: right;
+      font-size: 14px;
+      color: #333;
+    }
+    .footer-bottom a {
+      color: #000;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+      }
+      .footer-bottom {
+        text-align: center;
+      }
+    }
+  </style>
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href=""C:\Users\SAIF AKBAR\Desktop\project\school.html"">Home</a></li>
+        <li><a href="#">About Our Trust</a></li>
+        <li><a href="#">Vision & Mission</a></li>
+        <li><a href="#">What we do</a></li>
+        <li><a href="#">Annual Report</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Other Pages</h3>
+      <ul>
+        <li><a href="#">Managing Committee</a></li>
+        <li><a href="#">Founder</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Advisory Board</a></li>
+        <li><a href="#">Teachers & House Parents</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Contact Info</h3>
+      <div class="contact-info">
+        <div><i class="fas fa-map-marker-alt"></i><a href="https://www.google.com/maps/place/Islamic+Academy/@23.6299426,85.5210471,15z/data=!4m15!1m8!3m7!1s0x39f4f47572561a39:0xe5894af81c1f9311!2sIslamic+Academy!8m2!3d23.6298453!4d85.5211643!10e5!16s%2Fg%2F11csqq7m3g!3m5!1s0x39f4f47572561a39:0xe5894af81c1f9311!8m2!3d23.6298453!4d85.5211643!16s%2Fg%2F11csqq7m3g?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D">Soudager mohalla , Ramgarh cantt  Ramgarh <br>Jharkhand<br>PIN 829122</a></div>
+        <hr>
+        <div><i class="fas fa-phone"></i>+91 8271071584<br>+91 9279464999</div>
+        <hr>
+        <div><i class="fas fa-envelope"></i>islamicacademy.org.in</div>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>Donate Us</h3>
+      <div class="donate-text">
+        Your support will help a child come out of the vicious cycle of generational poverty through education, health care and good upbringing.
+      </div>
+      <a href="#" class="donate-btn">Donate Now</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+  </div>
+</footer>
+
+</body>
+</html>
+
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
